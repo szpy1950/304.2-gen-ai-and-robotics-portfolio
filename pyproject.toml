@@ -1,0 +1,11 @@
+[project]
+name = "duckify-portfolio"
+version = "0.1.0"
+description = "Portfolio website for the 304 GenAI & Robotics semester project — Duckify"
+requires-python = ">=3.11"
+dependencies = [
+    "mkdocs-material>=9.5",
+    "mkdocs-minify-plugin>=0.8",
+]
+
+[tool.uv]

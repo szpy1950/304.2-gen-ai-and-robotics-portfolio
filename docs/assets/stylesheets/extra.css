@@ -1,0 +1,16 @@
+/* Custom accent color — duck orange */
+:root {
+  --md-primary-fg-color: #e65100;
+  --md-primary-fg-color--light: #ff833a;
+  --md-primary-fg-color--dark: #ac1900;
+  --md-accent-fg-color: #ff6d00;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #ff833a;
+}
+
+/* Slightly tighten the nav width */
+.md-nav__title {
+  font-weight: 700;
+}

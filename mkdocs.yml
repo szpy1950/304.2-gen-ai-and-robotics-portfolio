@@ -1,0 +1,90 @@
+site_name: "Duckify — 304 GenAI & Robotics Portfolio"
+site_description: "Weekly portfolio for the 304 semester project: LLM-driven 3D duck generation and robotic arm painting at HES-SO Valais-Wallis."
+site_author: "szpy1950"
+site_url: "https://szpy1950.github.io/304.2-gen-ai-and-robotics-portfolio/"
+
+repo_name: "szpy1950/304.2-gen-ai-and-robotics-portfolio"
+repo_url: "https://github.com/szpy1950/304.2-gen-ai-and-robotics-portfolio"
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Journal:
+    - Week 1 — Project Kickoff: articles/week-1.md
+    - Week 2 — Pipeline Architecture: articles/week-2.md
+  - About: about.md
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/szpy1950
+  generator: false
+
+copyright: "HES-SO Valais-Wallis — 304 Semester Project 2025–2026"
