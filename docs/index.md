@@ -10,32 +10,34 @@
 
 ```mermaid
 flowchart LR
-    A[LLM Prompting\nGPT / local model] -->|generates concept| B[3D Model Generation\ntext-to-3D]
-    B -->|mesh + UV map| C[Texture Mapping\nAI-generated textures]
-    C -->|print-ready file| D[3D Printing\nFDM duck body]
-    D -->|physical duck| E[Robotic Arm Painting\n6-DOF arm + toolpath]
-    E -->|finished duck| F[Painted Duck 🦆]
+    Client["👤 Client"] --> LLM["🤖 LLM Pipeline\n2 devs"]
+    LLM --> Print["🖨️ 3D Model Printing\n1 dev"]
+    LLM --> Trace["🎨 Texture Mapping\n& Tracing\n2 devs"]
+    Print --> Arm["🦾 Robotic Arm Painting\n3 devs"]
+    Trace --> Arm
+    Arm --> Duck["🦆 Painted Duck"]
 ```
 
-The project brings together a team of ~9 students across three sub-teams:
+The project involves **8 developers** plus a CEO, CTO, and project manager:
 
-| Sub-team | Responsibility |
-|----------|----------------|
-| **Application** | LLM interface, user prompts, model generation pipeline |
-| **Captors / Vision** | Camera feedback, quality control, workpiece registration |
-| **Robotics / Data** | 6-DOF arm control, inverse kinematics, painting toolpaths |
+| Role | People | Responsibility |
+|------|--------|----------------|
+| **LLM** | 2 | Prompt pipeline, concept generation |
+| **3D Model Printing** | 1 | text-to-3D, print preparation |
+| **Website** | 1 | Client-facing interface |
+| **Tracing** | 2 | UV mapping, painting path calculation |
+| **Robotic Arm** | 3 | Calibration, simulation, arm control |
 
 ---
 
-## My role — Robotic Arm Painting
+## My role — Robotic Arm
 
-I am responsible for the **robotic arm painting** sub-system. My work spans:
+I am part of the **Robotic Arm group** (3 people). My focus within the group:
 
-- Forward & inverse kinematics for a 6-DOF arm
-- Toolpath generation from UV texture maps
-- TCP calibration and workpiece registration
-- Surface-normal alignment for consistent paint application
-- Trajectory planning and force/velocity control
+- Simulation environment setup (ISCoin / Docker)
+- Self-collision avoidance in simulation
+- Learning and working with the UR3e Python control library
+- Bridging the real-arm library with the simulator interface
 
 ---
 
@@ -43,5 +45,4 @@ I am responsible for the **robotic arm painting** sub-system. My work spans:
 
 | Week | Topic | Status |
 |------|-------|--------|
-| [Week 1](articles/week-1.md) | Project kickoff — team structure, pipeline design | ✅ |
-| [Week 2](articles/week-2.md) | Architecture decisions — IK solver, robot SDK | ✅ |
+| [Week 1](articles/week-1.md) | Project kickoff — pipeline design, simulation setup | 🔄 In progress |

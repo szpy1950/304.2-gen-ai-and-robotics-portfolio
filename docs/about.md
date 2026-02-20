@@ -2,9 +2,9 @@
 
 ## Author
 
-3rd-year Computer Science student at **HES-SO Valais-Wallis**, Sierre.
+**Pierre-Yves Savioz** — 3rd-year Informatics and Information Technology student at **HES-SO Valais-Wallis**, Sion.
 
-This portfolio documents my weekly progress on the **304 GenAI & Robotics** semester project — a full-time project spanning the spring semester 2026.
+This portfolio documents my weekly progress on the **304 GenAI & Robotics** Major Track — a full-time project spanning the spring semester 2026.
 
 ## The project
 
@@ -14,4 +14,4 @@ My contribution focuses on the **robotic arm painting** sub-system: kinematics, 
 
 ## Contact
 
-- GitHub: [YOUR_GITHUB_USERNAME](https://github.com/YOUR_GITHUB_USERNAME)
+- GitHub: [szpy1950](https://github.com/szpy1950)

@@ -149,9 +149,6 @@ requires-dist = [
     { name = "mkdocs-minify-plugin", specifier = ">=0.8" },
 ]
 
-[package.metadata.requires-dev]
-dev = []
-
 [[package]]
 name = "ghp-import"
 version = "2.1.0"

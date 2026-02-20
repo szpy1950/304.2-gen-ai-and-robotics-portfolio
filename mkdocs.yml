@@ -47,7 +47,6 @@ nav:
   - Home: index.md
   - Journal:
     - Week 1 — Project Kickoff: articles/week-1.md
-    - Week 2 — Pipeline Architecture: articles/week-2.md
   - About: about.md
 
 plugins:
