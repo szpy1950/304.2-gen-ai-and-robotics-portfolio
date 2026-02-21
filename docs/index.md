@@ -1,8 +1,8 @@
-# Duckify — Portfolio
+# Duckify Portfolio
 
 **Course:** 304 GenAI & Robotics | HES-SO Valais-Wallis | Spring Semester 2026
 
-This portfolio showcases the skills, artifacts, and contributions I developed during the Duckify project. It links to repositories, reports, and weekly reflections — serving as a demonstration of applied work rather than just a journal.
+This portfolio showcases the skills, artifacts, and contributions I developed during the Duckify project. It links to repositories, reports, and weekly reflections, serving as a demonstration of applied work rather than just a journal.
 
 ---
 
@@ -22,4 +22,4 @@ I contribute primarily to the **robotic arm** side of the pipeline, but my work 
 
 | Week | Topic | Status |
 |------|-------|--------|
-| [Week 1](articles/week-1.md) | Project kickoff — pipeline design, simulation setup | 🔄 In progress |
+| [Week 1](articles/week-1.md) | Project kickoff: pipeline design, simulation setup | 🔄 In progress |

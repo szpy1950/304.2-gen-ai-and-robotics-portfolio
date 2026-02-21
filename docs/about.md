@@ -2,9 +2,9 @@
 
 ## Author
 
-**Pierre-Yves Savioz** — 3rd-year Informatics and Information Technology student at **HES-SO Valais-Wallis**, Sion.
+**Pierre-Yves Savioz**, 3rd-year Informatics and Information Technology student at **HES-SO Valais-Wallis**, Sion.
 
-This portfolio documents my weekly progress on the **304 GenAI & Robotics** Major Track — a full-time project spanning the spring semester 2026.
+This portfolio documents my weekly progress on the **304 GenAI & Robotics** Major Track, a full-time project spanning the spring semester 2026.
 
 ## The project
 
