@@ -1,43 +1,20 @@
 # Duckify — Portfolio
 
-**Course:** 304 GenAI & Robotics | HES-SO Valais-Wallis | 2025–2026
+**Course:** 304 GenAI & Robotics | HES-SO Valais-Wallis | Spring Semester 2026
+
+This portfolio showcases the skills, artifacts, and contributions I developed during the Duckify project. It links to repositories, reports, and weekly reflections — serving as a demonstration of applied work rather than just a journal.
 
 ---
 
 ## Project overview
 
-**Duckify** is a full-stack generative AI and robotics pipeline that produces hand-painted 3D rubber ducks:
-
-```mermaid
-flowchart LR
-    Client["👤 Client"] --> LLM["🤖 LLM Pipeline\n2 devs"]
-    LLM --> Print["🖨️ 3D Model Printing\n1 dev"]
-    LLM --> Trace["🎨 Texture Mapping\n& Tracing\n2 devs"]
-    Print --> Arm["🦾 Robotic Arm Painting\n3 devs"]
-    Trace --> Arm
-    Arm --> Duck["🦆 Painted Duck"]
-```
-
-The project involves **8 developers** plus a CEO, CTO, and project manager:
-
-| Role | People | Responsibility |
-|------|--------|----------------|
-| **LLM** | 2 | Prompt pipeline, concept generation |
-| **3D Model Printing** | 1 | text-to-3D, print preparation |
-| **Website** | 1 | Client-facing interface |
-| **Tracing** | 2 | UV mapping, painting path calculation |
-| **Robotic Arm** | 3 | Calibration, simulation, arm control |
+**Duckify** is a full-stack generative AI and robotics pipeline that produces hand-painted 3D rubber ducks. The project involves roughly eight developers plus a CEO, CTO, and project owner, working in an agile fashion where roles remain fluid and shift as needed.
 
 ---
 
-## My role — Robotic Arm
+## My role
 
-I am part of the **Robotic Arm group** (3 people). My focus within the group:
-
-- Simulation environment setup (ISCoin / Docker)
-- Self-collision avoidance in simulation
-- Learning and working with the UR3e Python control library
-- Bridging the real-arm library with the simulator interface
+I contribute primarily to the **robotic arm** side of the pipeline, but my work extends well beyond a single sub-team. Day-to-day that includes programming and calibrating the UR3e arm, designing and iterating on fixturing and support solutions, researching calibration strategies, and coordinating across teams (LLM, tracing, 3D printing) to keep interfaces aligned. I also participate in cross-team meetings, contribute to architectural decisions, and help wherever bottlenecks appear.
 
 ---
 
