@@ -45,8 +45,8 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Journal:
-    - Week 1 — Project Kickoff: articles/week-1.md
+  - Portfolio: portfolio.md
+  - Journal: journal.md
   - About: about.md
 
 plugins:
