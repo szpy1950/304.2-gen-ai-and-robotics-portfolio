@@ -6,6 +6,8 @@
 - *By delivering a framework, software and/or hardware*
 - *By respecting development constraints*
 
+---
+
 Implementing my part of the robotic arm control pipeline involved several modules within a collaborative Python package. I wrote a full kinematics library (`kinematics.py`) covering DH matrices, forward kinematics, analytical IK, and solution selection, and a motion planning module (`computation.py`) that converts duck-surface trace coordinates into TCP pose sequences with hover logic, path assembly, and joint-space smoothing. I also set up the PyBullet simulation environment (`pybullet_helpers.py`), loading the UR3e URDF and configuring joints, to test planned paths before any hardware run. Together with Cedric, I implemented the coordinate frame transformation (`transformation.py`) that maps duck-space coordinates into the robot's base frame. Work was carried out across multiple Git branches, with a dedicated safety module (`safety.py`) enforcing runtime constraints. The implementation is ongoing: self-collision handling and the path planner are under active development and refactoring.
 
 **Evidence:**
