@@ -1,0 +1,513 @@
+#import "@preview/suiji:0.5.1": *
+#import "./template.typ": meeting, team
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 2, day: 20),
+  time: [10h00],
+  scribe: ("J", "L")
+)
+
+#set text(lang: "en")
+
+= Critics received :
+
+== General
+
+=== Presentation
+
+- Transform the flowchart diagram to a more transversal one
+- When defining milestones, always have precise validation criteria
+- Link work presented directly with milestones list
+- Have local conclusions for each team part
+- Continue to always display findings with tests results
+- Add bullet points to slides, to help coming back in the future
+- When presenting milestones, always with visual DONE/TODO
+  - if still in TODO then also add the blockers
+- Always present existing sources of a displayed information
+
+=== Organization
+- a locally flat duck will help for the coloring part (in prototype)
+- when testing something - push up to 5-10 cases to be able to quantify complexity
+- arguing about "what we will produce/not produce" is only a client's privilege
+- being an expert able to manipulate the client
+- Be careful that tasks don't overlap each others (e.g. research conducted by GenAI and Tracing teams)
+- Pen type must be ASAP steps
+- Define the interfaces
+- Define the robot solution (e.g. know which move type command will suffice )
+
+=== Research tips
+- use a promise paper's reference in Google scholar to find recent development in the field
+
+== Team focused
+
+=== GenAI
+- the client prompt could be internally updated before being send to generative model
+- Try more realist model in generation tests
+- Synthetise state of research results
+
+=== Tracing
+- limiting the color panel and/or patterns
+- discretization : attention to contiguous zone size : not smaller than the pen tip
+
+=== robot
+- Add a visual about the simulation's environment and robot environment
+- Add a visual (disc into disc) about the robot range
+
+
+
+
+
+#import "./template.typ": meeting, team
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 2, day: 27),
+  location: [23N418],
+  time: [10h00],
+  scribe: "M"
+)
+
+= Critics :
+
+= GenAI:
+
+- Présentation des milestones
+- Présentation des models
+
+- Prompt engineer pêche
+- Mise en place de l'intégration
+
+
+*Retour GenAI*
+
+- Problème d'exploitation de modèles: Il faut maintenant être précis dans le prompt engineering. Par exemple, créer plusieurs prompts pour une même requête et les évaluer.
+
+- Problème de computations: Si on est limités par la VRAM de 16GB, faire un calcul pour le pricing d'un hardware en heure et utilisation afin de faire une requête pour avoir accès à des systèmes plus puissants.
+
+- Problème de self reflection: Si le canard n'est pas esthétiquement présentable, il faut prendre une décision d'abord au sein de l'équipe GenAI puis au sein des membres du projets sans attendre une remarque du PO/CTO.
+
+*Question à se poser*
+
+- Quels sont les éléments qui permettent de prendre la décision ?
+- Que faire dans l'impasse ? Estimation de temps, Options et potentiel de prise de décision.
+
+= Tracing:
+
+- Présentation des milestones
+- Présentation de la marche à suivre du tracing
+
+*Retour Tracing*
+
+Pas de retour.
+
+= Robot:
+
+- Présentation Milestone: sélection du stylo, écrire sur papier, validation visuelle
+
+- Milestone échec.
+
+- Vidéo de la réussite du dessin du lemniscate
+
+- Présentation de la kinematic inverse
+
+- Conclusion rétrospective:
+Problème de communication, intégration de donnée tracing
+
+
+*Retour Robot*
+
+Problème de vocabulaire: le terme validation n'est pas précis pour une milestone, il faut l'accompagner de plus de précision ( par exemple: validation visuelle, validation via calcul )
+
+
+*Impression 3D*
+
+- Présentation milestone
+- Servitude: 15h00 pour imprimer
+- Présentation des supports ( du stylo, du support du canard, )
+
+*Retour Impression 3D*
+
+Pour la discussion avec le CEO:
+- Cas du type de modèle de canard:
+Il aurait été préférable d'utiliser cette opportunité pour manipuler le CEO sur le choix de modèle de canard
+- Problème de planification: l'organisation interne:
+  Mandater l'équipe robotique pour réussir le milestone! Crucial!
+
+*Week2: Conclusion*
+Weekly milestone pas réussi
+
+Communication globale du groupe et travail interne pas optimale, proactivité à améliorer et assumer ces responsabilités
+
+
+= Milestone Planning:
+
+*CTO & PO*
+- Il faut impérativement dessiner sur le canard sinon on est en retard. Ceci permet au CTO de savoir qu'on est sur la bonne route et donne un argument de qualité.
+- Dépendance entre les groupes: on travaille en méthode agile donc il faut pourvoir dire qui a moins de travail
+
+*Retour du CEO*
+- Le CEO n'est pas content: présentation n'est pas bonne.
+ - Il manque l'évaluation en générale.
+ - Il manque l'évaluation du personnelle des solutions proposées.
+ - Chaque prise de parole doit véhiculer de l'information.
+
+
+*Milestone GenAI*
+
+Problème métrique qualitative, on tombe dans le piège.
+C'est pourquoi il faut une procédure de test automatique qualitative.
+
+- Test complet des solutions. "Avec des variations de prompts différents" pendant 2j et SI cela n'est pas fructueux, alors CHACHA/DISCO.
+- Plusieurs dimensions de canard.
+- Arrêt de la partie exploration et exploitation.
+- Génération d'une image puis symétrie, puis jouer.
+
+*Milestone Robot*
+- Faire le test du dessin sur le canard  apporte de l'information.
+- Communication faire attention, utiliser "on", ne pas réussir est normal dans ce projet
+- Définir de manière humaine ou va se trouver le canard ( plus d'optimisation )
+
+
+
+
+#import "./template.typ": meeting, milestone-part, milestone-parts
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 6),
+  absent: ("PO",),
+  location: [23N418],
+  time: [10h00],
+  scribe: "L"
+)
+
+= GenAI
+
+== Milestones
+
+- Benchmark: fait mais pas intégré
+- Décider d'une solution: pas fait car encore des hallucinations
+- Résultats prometteurs avec ChaCha et Disco
+
+- Tracing (L): quantization de couleurs marche mieux avec du contraste, optimisations à faire mais pas encore pu tester parce qu'il fallait des résultats de la team GenAI
+- NIMA (J): résultat entre 4 et 5 ? (M) soupçonne peut-être une gaussienne
+
+== Commentaires
+
+- #highlight[Inclure les conclusions !] Milestone acquis ou pas $->$ pourquoi ?
+- Manque des informations sur le fonctionnement du système, p.ex. le fait que c'est non-déterministe, pourquoi plusieurs échantillons, etc.
+- Pas forcément compréhensible pour quelqu'un d'externe à la team
+- Étoile en dehors du canard ? Pourquoi ? Mieux expliciter ce que les images représentent
+- Limitation des couleurs $->$ pas prendre des a priori sur les autres groupes, demander aux personnes concernées
+- Communiquer sur les contraintes (p.ex. résolution minimum), maintenant / le plus tôt possible
+- Mettre les prompts sous les images, montre aussi le progrès
+
+= Tracing
+
+- granularité ? vitesse vs. précision
+- waypoints devrait ne pas s'arrêter
+
+== Commentaires
+
+- Présentation bien mais objectif: véhiculer de l'information
+- Vaut la peine d'expliquer un peu comment les choses ont été faites $->$ aide à la compréhension, met en évidence les blockers / les questions
+- Job du chef de projet, coordonner les équipes, s'assurer de la cohésion
+
+= Robot
+
+- Plus de point $=>$ plus la trajectoire est propre
+- Retard à cause des vecteurs de rotation (pas Euler)
+- Problèmes:
+  - Compréhension mathématique
+  - Temps avec le robot
+
+== Milestones
+
+- Conversion des coordonnées: ok
+- Dessin sur surface plate mais pas avec un angle $->$ erreur de conversion (normale)
+
+- Manipulation des outils $->$ dans la simulation ok mais pas testé
+- Dessin sur le canard $->$ pas fait
+- Dessin avec 2 stylos $->$ pas fait
+
+*Semaine 4*
+- Manipulation outils
+- Dessin surface 3D
+- Dessin avec plusieurs stylos
+- Chercher et implémenter une solution de sécurité
+
+== À faire
+
+- Validation avec le robot
+- Sécurité, 3 options
+  + From scratch
+  + Librairie externe
+  + Movit2 $->$ lourde et complexe, mais liée à URBasic
+
+= 3D
+
+== Milestones
+
+- Validations $->$ faites
+- Supports: ok
+- Pièces en bois: ok
+
+*Semaine 4*
+
+- Ajustements si nécessaire
+- Alex $->$ team robot
+
+= Conclusion
+
+- Objectif principal: dessiner sur le canard en 3D
+  - Pas atteint
+
+- *Blockers*:
+  - Changement de paradigme d'implémentation team robot
+  - Contrainte de temps
+  - GenAI $->$ pas de résultats utilisables intégrés
+
+== Chef de projet
+- Discuter avec chaque équipe pour l'intégration
+- Intégrations réalisées en partie
+- Se concentrer sur le pipeline complet, avec une implication des "chefs" de teams
+
+== Commentaires
+- quelques slides sur la gestion du projet
+- intégration: définir les protocoles d'échanges entre teams
+- chaque groupe doit pousser le milestone selon ses connaissance pour atteindre le but final, le chef de projet n'a pas forcément connaissance des difficultés ou objectifs précis
+
+
+== Objectif
+- Plusieurs stylos
+- Sur le canard
+  - Aile
+  - Côté du cou
+  - Arrière du cou
+  - Endroit plus dur ?
+- Définir les contraintes
+
+#quote(block: true)[
+  Using the #milestone-part[complete pipeline], draw #milestone-part[AI generated] shape #milestone-part[contours] with a #milestone-part[selected GenAI solution], on a #milestone-part[duck], installed on a #milestone-part[stable support], using #milestone-part[multiple colors], while #milestone-part[changing colors automatically]
+]
+
+#milestone-parts()
+
+== Futures milestones:
+- Collier autour du cou
+
+#line(length: 100%)
+
+- Inset de l'épaisseur du stylo
+
+- (N) à quoi sert le benchmark ?
+- (Lettry) très bonne question, important de remettre en question la légitimité du travail effectué
+- (Lettry) Convaincre les autres / les décisions
+-
+
++ Forme géométrique à un endroit précis $->$ plutôt Image2Texture
++ Plus de créativité $->$ plutôt Text2Texture
+
+
+== Meeting CEO
+- liste de plus et de moins, de facteurs qui permettent de prendre une décision
+- un peu timides, assumer les choix
+- défendre le travail effectué, justifier
+- #highlight[expliciter, pas de sous-entendus !]
+- choix vs. décision
+
+#quote(
+  block: true,
+  attribution: [L. Lettry]
+)[Si on sait pas où on va, on arrive partout]
+
+= Administratif
+
+- tous les étudiants ISC + tous les profs
+- présenter ce qu'on fait
+- décalé dans 2 semaines
+- mock evaluation la semaine prochaine (vendredi matin), 2 entretiens 20-30 minutes avec tout le monde
+
+#align(
+  center,
+  {
+    circle(
+      align(center + horizon)[
+        *Chef de projet*\
+        #text(size: 2em)[*Jeremy*]
+      ]
+    )
+  }
+)
+
+
+#import "./template.typ": meeting, milestone-part, milestone-parts
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 13),
+  absent: (),
+  location: [23N225],
+  time: [13h00],
+  scribe: "N"
+)
+
+= GenAI
+
+- MV Adapter: OK
+
+== Milestones
+
+- Investiguer image2texture et text2texture
+
+- Solution on prem
+  - Flux Kontext 1 (Black Forest Labs) Text to image
+  - SDXL (Stability.ai)
+
+=== Image2Texture
+- "Leakage" des textures
+- Génération lente
+- Solution pas suffisante
+
+=== Text2Texture
+- Problèmes d'orientation réglé
+- Plus de variance, mais moins de leakage
+- Génération plus rapide
+
+== Commentaires
+
+- Q: Génération plus rapide possible ?
+  - R: 30 générations, 13 secondes par gén
+- Q: Canard batman, spiderman, avec plus de sémantique, comment ça marche ?
+  - R: A voir...
+
+
+=== Image2Texture
+Flux prend une image du model + prompt
+
+=== Text2Texture
+Benchmark: Prompt respecté ?
+
+= Tracing
+
+- Out-of-bounds problem
+  - Calculate intersections with uv map edges
+
+== Commentaires
+
+- Q: Séparation possible les côtés du canard ?
+  - R: Oui
+
+- Q: UV Map améliorable ?
+  - R: Pas de problèmes avec la UV map actuelle
+
+= Robot
+
+- Intégrer le code dans la repo Duckify
+- Clean codebase
+
+
+== Milestones
+
+== À faire
+
+= 3D
+
+- Solution stabilité actuel est le skotch (pas encore testé)
+
+== Milestones
+
+- Correct the stability with skotch
+  - Pas réussi, car pas encore testé
+- Remove friction effect in pen support
+  - Pas réussi, mais nouvelle solution imaginée
+  - Possibilité de skotcher les support des stylos
+  - Ressort dans le support ?
+
+
+= Conclusion
+- UI: Interface où on rentre un prompt qui utilise toute la pipeline
+  - Vraiment nécessaire pour l'instant ?
+
+- Robot:
+  - Meilleure planification de l'unification du code.
+  - Contrôle général: entre 2 trais ?
+- Optimisation vitesse de dessin
+
+== Chef de projet
+
+== Commentaires
+
+- Portfolios: "template" à venir
+- Lancer startup lololol
+
+== Objectif
+  - Partie intégration (avec interface ?)
+  - Tester changement de stylo sur trapèze
+  - Documenter les changements d'équipes au daily
+
+= Administratif
+
+#align(
+  center,
+  circle(
+    align(center + horizon)[
+      *Chef de projet*\
+      #text(size: 2em)[*Kevin*]
+    ]
+  )
+)
+
+
+#import "@preview/suiji:0.5.1": *
+#import "./template.typ": meeting, worker-attendees, direction-attendees, team
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 03, day: 03)
+)
+
+#worker-attendees()\
+#direction-attendees()\M. Misk, M. Lettru, M. Travelletti
+
+
+*Time*: 10h30
+
+*Scribes* Marco
+
+= Presentation :
+
+- Pres Robot: On montre les avantages du robot contre l'humain. On montre les chiffres de robot vs humain.
+
+- Pres AI: On montre les avantages de l'option standard et l'option plus.
+
+- Pres Impression 3D: On montre les 3 design de canard.
+
+= CEO Commitments :
+
+- Option Plus 550 CHF / Mois
+- Modèle de canard en annexe
+- Bras Robot
+
+= CEO Inputs:
+
+- Nom minuscule, Temps de production de canard, Correction du PV
+- Pour vendredi 06.03.2026: Envoyer la vidéo du canard au CEO
+
+= Point pour la prochaine séeance:
+
+- Changer de salle si possible
+
+= CTO Inputs:
+
+- Faire la demande formelle pour avoir un budget et un lieu ( rooftop ) pour la soirée
+
+
+=== Annexes
+#align(left)[
+  #figure(
+    image("../assets/model3d.png", width: 30%),
+    caption: [
+      Modèle proposé lors de la réunion (approuvé)
+    ],
+  )
+]
+
+
+

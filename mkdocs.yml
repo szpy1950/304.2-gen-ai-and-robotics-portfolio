@@ -45,7 +45,18 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Portfolio: portfolio.md
+  - Portfolio:
+    - Overview: portfolio.md
+    - Computer Science Engineering:
+      - Analysing a complex IT problem: skills/analysing-complex-it-problem.md
+      - Designing a theoretical modelled solution: skills/designing-theoretical-solution.md
+      - Implementing a theoretical modelled solution: skills/implementing-theoretical-solution.md
+      - Evaluating an IT system: skills/evaluating-it-system.md
+    - Soft Skills:
+      - Communicating clearly and efficiently: skills/communicating.md
+      - Adopting a professional attitude: skills/professional-attitude.md
+      - Justifying one's opinions and choices: skills/justifying-choices.md
+      - Critiquing the production process: skills/self-reflection.md
   - Journal: journal.md
   - About: about.md
 

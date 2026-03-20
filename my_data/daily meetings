@@ -1,0 +1,1477 @@
+#import "@preview/suiji:0.5.1": *
+#import "./template.typ": meeting, attendees, team
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 2, day: 18),
+  absent: ("K", "N"),
+  scribe: "L"
+)
+
+#let rng = gen-rng(15)
+#let (rng, order) = shuffle(rng, team.values())
+
+- P-Y : Tourner le scribe\
+    $->$ Ordre: #order.join(", ")
+- A: Impressions devraient être finies d'ici fin de W2
+- P-Y: Expert en connaissance, pas que tout soit fini
+- L: Remplir les milestones pour 10h30
+- P-Y: Accès à la simulation
+- P-Y: besoin d'explorer un peu les librairies / la simulation pour définir les milestones
+- L: Chacun faire une liste de questions pour le client pour la fin de la journée (15h, 15h30)
+- P-Y: Où mettre liens/repo pour partage
+- L: Si lien, on peut mettre dans un dossier doc, pour les fichiers plus gros, éventuellement OneDrive
+- L: Mettre les tâches sur Jira
+
+#import "./template.typ": meeting, attendees, team
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 2, day: 19),
+  location: [23N216],
+  time: [9h00],
+  scribe: "J"
+)
+
+= Work done/todo
+
+=== Marco :
+- done:
+  - recherche modèle diffusion pour génération texture + communication avec team mapping pour besoin
+- todo:
+  - continuer les recherches
+
+=== Kevin :
+- done:
+  - recherche modèle diffusion pour génération texture
+- issues:
+  - problèmes de compatibilité de librairies. Les solutions testées date souvent des années 2022-23.
+- todo :
+  - continuer les recherches
+
+== Louis :
+- done:
+  - mise en place de la github policy
+  - milestone des de planifications des étapes algorithmiques
+  - mail envoyé au CTO pour questions au CEO
+- todo :
+  - rajout de documentation dans le git
+  - update/cleaning jira
+  - travailler en collaboration avec Jeremy sur le milestone restant de la team Tracing
+
+== Jeremy :
+- done :
+  - recherche sur le milestone de projection de texture par LLM
+- todo:
+  - rédaction du rapport meeting
+  - poursuite des recherches
+
+== Pierre-Yves :
+- done:
+  - faire tourner logiciel de simulation sur son laptop
+  - fait un wrapper pour résoudre le problème de compatibilités de librairies
+
+- issues: librairies python qui fonctionnent avec le robot ne sont pas compatible avec l'environnement de simulation
+- todo :
+  - faire un déplacement A-B dans le simulateur
+  - test avec le robot cette après-midi
+
+== Cédric :
+- done:
+  - faire tourner logiciel de simulation sur son laptop
+  - fait un notebook/exemple plus explicatif que ce qui était fourni du simulateur
+  - Travail sur la calibration par caméra
+- todo:
+  - finir notebook explicatif
+  - poursuivre la calibration Hand-Eye
+
+== Nathan :
+- done:
+  - faire tourner logiciel de simulation sur son laptop
+
+- todo:
+  - faire un déplacement A-B dans le simulateur
+  - test avec le robot cette après-midi
+
+== Alex :
+- done:
+  - ébauche des supports
+- issues:
+- impossibilité de modifier un .obj sur le logiciel de modélisation
+
+- todo:
+  - solution à l'issue avec une librairie trouvée à tester
+  - va avec la team robot au labo pour prendre mesure
+  - faire un assemblage support + modèle
+
+== Besoins :
+- adapteur ethernet pour la team robot
+
+== Missions :
+- à tous mettre les tâches sur Jira
+
+== Questions :
+- heure meeting vendredi matin ?
+
+#import "./template.typ": meeting, attendees, team
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 2, day: 20),
+  location: [23N406],
+  time: [9h00],
+  scribe: "L"
+)
+
+- M:
+  - Hier: création texture canard, recherche $->$ trouvé un repo GitHub + démo huggingface, testé mais pas parfait
+  - Ajd: TBD
+  - Remarques: comment évaluer les différentes solutions
+- A:
+  - Hier: trouvé comment modifier un modèle importé, premiers designs de supports, discuté avec Jérôme $->$ possibilité de faire des découpes sur bois pour des choses plus grandes
+  - Ajd: réflexion sur l'environnement général, à discuter avec la team robot
+- PY / N:
+  - Hier: librairies ok, mouvements ok (MoveJ $A -> B$), que 1h à disposition $->$ pas pu tout tester
+  - Ajd: continuer tests simulateur mais pas sur bras avant lundi
+  - Remarques: processus de test assez lent car test sur simulateur obligatoire, créé un wrapper pour faciliter la traduction simulateur $->$ bras
+- C:
+  - Hier: complété tuto
+  - Ajd: continuer tuto
+  - Remarques: pipeline de calibration difficile à mettre en place sans accès au robot, caméra faite pour le software
+- K:
+  - Hier: testé différentes solutions de génération de textures, demande accès à Disco/Cha-Cha
+  - Ajd: discussion avec Marco $->$ choix solution
+  - Remarques: mémoire limitée sur Calypso, modèle assez demandant
+- J:
+  - Hier: recherche génération textures $->$ TEXTure, admin
+  - Ajd: sélection/validation de la solution
+- L:
+  - Hier: algorithme, setup docker pour TEXTure
+  - Ajd: peut-être commencer implémentation de l'algo, admin
+  - Remarques: peut-être un peu de prompt engineering nécessaire pour avoir un bon résultat
+
+#line(length: 100%)
+
+- A: réunion avec CTO et PO $=>$ probablement quelques tâches administrative et/ou modifications
+- C: milestones de la semaine prochaine à mettre dans la présentation
+- PY: refaire schéma
+- A: pensez au portfolio
+- K: portfolio le matin ? ou l'après-midi ?
+- L: retrospective en fin d'après-midi $->$ *15h00*
+- L: repo team robot ?
+- PY: repo/fork perso
+- L: si possible mettre, dans l'organisation
+- PY: documentation centralisée? $->$ oui
+- J: vérifier si une branche existe déjà avant d'en créer une (p.ex. `doc/meetings`)
+
+
+#import "./template.typ": meeting, attendees, team
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 2, day: 23),
+  location: [23N316],
+  time: [9h00],
+  scribe: "N"
+)
+
+- KV:
+  - Continuer milestone trouver AI adapter
+  - Tester Paint-it (pas prometteur pour l'instant)
+  - Accès a chacha
+- MC:
+  - Faire benchmark génération de canard bien ou pas
+- AV:
+  - Acheté 2 feutres verts (8m & 1,5mm)
+  - Discussion pièces en bois avec monsieur Darbellay
+  - Imprimer un canard
+  -  (A faire) Imprimer un "feutre" 3D avec bonne mesure
+- JD:
+  - Meeting tracing gen-ai: Weekly report, research report
+  - Commence implémentation du pipeline tracing
+- NA:
+   - Acheté les feutres
+   - Préparation de la présentation de vendredi
+   - Rapport technique bras robot
+- LH:
+  - Fini de setup docker (compose) pour TEXture + README
+    - python avec paramètres
+  - PR reviews
+  - Commence (avec Jeremy) algo de tracing
+  - Admin
+- CM:
+  - Calibration Camera à TCP
+    - A tester avec le robot cette semaine
+    - Besoin d'un outil pour calibration (au lieu du stylo)
+- PYS:
+  - Préparation présentation vendredi
+  - Modification wrapper + Cleanup rapport
+
+#line(length: 100%)
+
+- LLM rename to "Gen-AI"
+- Sprint 1 completed
+
+- PYS:
+  - Mail a Loïc pour utiliser robot demain
+  - Objectif: faire dessin (forme 2D) sur une feuille
+
+- LH:
+  - Terminé sous-tâches
+  - Tâches avec estimations de temps
+
+
+- Discussion Milestones de la semaine
+  - robot: Redéfinir Milestones
+  - Avoir canard imprimé pour la réunion avec le client (date à définir)
+  - tracing: démo algo
+  - Rester flexible, solutions peuvent changer
+    - Prévoir potentiel cul-de-sac
+  - robot: tracing envoient un point et la normale de ce point
+    - Potentielle problématique avec l'angle du bras robot par rapport à la surface du canard
+
+- Démarrage Sprint 2
+
+
+#import "./template.typ": meeting, attendees, team, blocker
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 2, day: 24),
+  absent: ("K",),
+  extra: ([L. Lettry],),
+  location: [23N316],
+  time: [9h00],
+  scribe: "PY"
+)
+
+*Marco*:
+Parle de sa rétrospective.
+Il a plan plusieurs modèles de canards
+Uniquement avec textures
+Un modèle, une UV map -> pour créer différentes textures
+But: faire plusieurs itérations, et ensuite un benchmark. Afin de pouvoir tester
+différentes modèles et évaluer le meilleur.
+Objectif: pour la présentation: avoir obtenu le bon modèle.
+
+D'ici demain, la team LLM peut se dispatcher.
+- L: tourne sur Calypso ?
+- M: oui, entre 5 et 10 minutes
+- J: Test monochrome ?
+- M: Montre un exemple tricolore, rouge bleu bleu ( VScode. MP4 )
+$->$ possibilité d'avoir des prompts
+
+*Louis*:
+Avec *Jeremy* : peer programming pour faire les fonctions de l algo de tracing.
+Aujourd'hui travail en parallèle. Normalement fini pour ce soir le gros du pipeline. Git LFS : pour les textures.
+- Configuration Jira pour les pull requests ( ID de la task ).
+
+- PY: quand est la présentation LLM ?
+- Louis: ce soir ou demain ?
+
+*Alex*: Disposition des pièces générales
+base en bois puis découpe laser.
+- monter la plaque qui soutient le robot. Pas certains sur la mesure du trou 1.
+A définir: la hauteur idéale du soutient robot
+Pour l'assemblage:
+- pièces en noir = robot simplified ( 170 mm )
+- 4 supports pour les 4 couleurs ( pour l'instant )
+- dessous , modeling de la plaque ( en métal )
+
+Montre une photo: Vision intérieure des supports qui épouse la forme du feutre
+on part sur une seule solution qui s'adapte. Le design est fini pour aujourd'hui -> présentation demain
+- Jeremy: prêt pour la présentation de fin de semaine ?
+- L:
+- C: Support pour les crayons , simple, Sur le cote
+Aussi semble un peu trop proche du robot selon le schéma?
+Bonne forme générale
+- A: Problème qu'on va rencontrer : 600 x 300 taille idéale. ( on est a 360 )
+Propositions: 1) plusieurs pièces 2)
+- C: il ne s'attendait pas a ça: plutôt une plaque avec les trous déjà faits
+- L: on n'a pas besoin d'une position absolue qui est statique.
+- A: Pour l'instant plus de largesse / flexibilité
+- J: Pour le support du canard: quelque chose qui s'enlève.
+- C: 3 piques ?
+- D: on met / finalise les supports avant la calibration.
+
+*Cedric*
+
+On va aller tester cet après midi. *PY*: on a la confirmation officielle
+
+*Nathan*
+On doit quand même savoir exactement ou mettre le canard, pour savoir si le bras a la reach nécessaire pour le peindre
+
+Va montrer les captures d'écran:
+- A fait un document , qui liste les points dans l'espace 3d accessibles par le bras
+- visualisation: en vert , le domaine accessible
+- Objectif: arrive a atteindre la surface du canard sans rentrer en collision
+
+*J*: il faut faire valider en amont.
+
+
+*PY*:
+par rapport aux collisions, pour le dessin 2D, restrictions plus simples définies sur le range des joints
+
+- J: Généralisable en 3D ?
+- PY: Pour l instant , façon simple , mais pas transposable en 3D
+\
+- L: demande de meeting, par exemple le jeudi, avec Monsieur Lettru ?
+- Lettru: Il faut lui écrire, pour demander ses disponibilités
+- L: tres important avant de continuer le projet ( dans un mauvais direction ? ), d'obtenir son approbation.
+\
+- J: plus de problème d'accès au labo ?
+- PY: pour cette semaine aucun soucis.
+\
+- Lettru: le mail doit être simple:
+"Bonjour on souhaite vous voir pour telle date ? si c'est disponible oui, sinon quelles sont vos disponibilités ?"
+
+
+#line(length: 100%)
+
+
+*Rétrospective sur le daily meeting*
+- Lettru: Qu'est ce que vous en pensez ?
+- C: le but c'est d informer sur son avancée ET de pouvoir rectifier si quelqu'un voit qu'un autre groupe.
+- PY: mieux que d'habitude car on peut voir
+\
+- Alex: est ce que la taille vous convient ?
+- PY: 2x ?
+- Alex: pas sur, a vérifier ? #blocker
+\
+- Lettru: utiliser le daily fin de discuter des éléments qui bloquent ? ( exemple: taille du canard)
+
+le retour: peut être trop chronologique ?
+
+- Lettru: Vrai objectif du daily: "Suis-je a l'heure ? "
+
+  Il manque une personne chef de projet
+  $->$ contact plus direct avec le clients pour TOUTES les informations manquantes.
+
+  ex: comment "manipuler le client" pour obtenir la conclusion désirée ?
+
+- Lettru: Cela Aurait du être fait plus tôt !
+
+  Combiner: équipe tracing $->$ équipe robot. ( intégration d’éléments )
+
+Q1: Comment avoir le plus d'informations sur ce qui marche ou ce qui ne marche pas ?
+
+Q2: Est ce que, ce que le dev X est en train de faire est utile ou non ( a ce point du projet )
+
+Solution: Il faut un chef de projet qui tranche.
+
+
+Comment doit être un "bon" daily meeting ?  Oser dire quand quelqu'un se trompe et demander aux personnes concernées d'en rediscuter et même de refaire.
+
+
+Si "ce que je devais faire , est ce accompli ? " -> oui / non -> pourquoi ?
+
+#line(length: 100%)
+
+
+
+Retour portfolios:
+
+- Prendre ce qu'on a fait, et dire : tel jour j'ai eu tel problème, et j'ai fait tel report et je l'ai résolu de cette manière ( preuve )
+- Ne doit PAS être un journal
+
+- Doit résumer les *contributions*
+
+- Exemple: J'ai amélioré ma communication
+
+- Attention au liens morts
+
+- "j'ai fait des recherches" -> Elles sont la "lien"
+
+- Document, n'est pas forcement une bonne démonstration de communication
+
+- Dans l'ensemble, c'est plutôt pas mal
+
+- Quand même faire un effort sur la structure?
+
+- Les questions d'entretien: Ne peut pas demander des questions ultra spécifiques des le début. Il faut une ligne directrice, et des questions plus "vagues"
+--> "Si vous avez quelque chose dont vous aimeriez me parler, qu'est ce que c'est"
+--> "Quelle est la chose la plus difficile que vous ayez fait ? "
+--> "Si vous êtes bloques lors d une implémentation, quelle est la procédure pour la résoudre ? "
+
+
+#import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 2, day: 25),
+  location: [Online],
+  time: [9h00],
+  scribe: "A"
+)
+
+*Marco*
+
+- Benchmark fait
+- Seconde méthode autre que text to texture -> image to texture.
+- Test monochrone : ok
+- Test de symbole : perte de précision
+- Milestone de générer un symbole : le faire à la main plutôt que par IA
+
+*Kevin*
+
+- Test de Painted : solution très mauvaise
+- SyncMVD : aussi mauvais résultat
+- MVPaint : Calypso lent + environnement => pas concluant
+- Utile de continuer de chercher ? Mettre en commun avec Marco
+- Bloqueur : Chacha et disco lent à mettre en place, Calypso lent (vitesse)
+
+*Alex*
+- pas de découpe laser car pas de design fini ni discussion avec M. Darbellay
+- hauteur du support $->$ idée plus précise mais pas exacte
+- supports des feutres plutôt bien évalués par Mme. Richard
+- plutôt qu'une plaque avec des trous, utiliser les goupilles en métal à disposition
+- supports canard doivent être plus robustes et plus larges
+- pas de présentation aujourd'hui
+- lancé impression canard arrondi $->$ arrêté à cause de problèmes
+- ajd:
+  - correction des supports
+  - regarder avec M. Darbellay pour découpe laser
+
+*Louis*
+- Travail avec Jeremy
+- Pipeline devait être complété : pas tout à fait
+- Administratif : review de pull request + fermer des branches
+- Branche de la team robot embêtante : à voir quoi en faire
+
+*Jeremy*
+- Pas de bloqueurs particuliers
+- Continuer sur ce qui était prévu hier
+
+*Nathan*
+- Continuer sur la range du robot
+- Animation sur simulation : attraper un stylo
+
+*P-Y*
+
+- Dessiner sur 2D : succès
+- Objectif suivant : surface non-uniforme
+- Dessin non-plat + 3D
+- Timing short pour les milestones
+
+*Cédric*
+- Calibration TCP : mauvaises formules
+- Maintenant : corrigée -> A tester
+- Mise en évidence sur l'origine de la calibration
+
+*Commentaire*
+
+- K : Calypso "instable"
+- L : Source du problème peut-être perte de paquets (MTU)
+- L : Milestone 3D pas clairement défini
+- P-Y : Que faire pour avoir un intégration complète
+- L : Pour 15h, préparer des questions pour la réunion avec le CEO
+- L : *Bien* formuler la question pour que la réponse soit utile et éviter un cul-de-sac
+- L,K : Mettre en commun le code (entry point) à faire avant vendredi
+- K : Intégration de la partie Gen AI vers Tracing pour que la pipeline soit complétée
+- M : Pour chacha et disco, regarder la semaine prochaine
+- K : Temps investi pour pas grand chose (Chacha, Disco)
+- P-Y : Idée de pipeline complète à regarder après cette réunion
+
+
+#import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 2, day: 26),
+  location: [23N316],
+  time: [9h00],
+  absent: ("A"),
+  scribe: "C"
+)
+
+*Alex* :
+- Support à feutre validé et imprimé, l'intégration ne sera normalement pas un problème
+- Réunion fixée pour découpe laser
+- Toujours du travail à faire pour le support du canard
+  - Design
+  - Taille
+ajd :
+- Révision de la plaque en bois pour fabrication
+ - Passer d'un assemblage creuser à un assemblage par des goupille
+ - Déterminer la position idéale pour principalement le support du canard et les supports à stylo
+- Poursuivre le design du support (avoir une version validée + imprimée pour la review de la semaine semble complexe)
+
+*Nathan*:
+- Algo pour permettre au robot de prendre et posé un stylo dans un Notebook
+- Difficulté à calculer les collisions de tout l'espace de travail avec les objets
+  - Change pour un fonction qui retournera si le point est atteignable depuis la position actuel
+ajd:
+  - Test de fonction crée + sur robot
+
+*Cédric*:
+- Correction de la formule pour la calibration TCP
+- Possibilité de passer des coordonnées relatives à l'objet aux coordonnées TCP pour robot
+ajd:
+- Tester sur le robot
+- Intégration de la calibration dans le pipeline
+- Code pour dessiné plusieurs ligne/forme en un calibration
+
+*Jeremy*:
+- Validation pipeline tracing
+ajd:
+- test pipeline complet
+- PV réunion avec CEO
+
+*Louis*:
+- P-Y + Kevin: définir la partie intégration du projet
+  - Notebook pour setup intégration
+- Implémenter transformation coordonnée texture sur objet
+  - Contrainte UV mapping
+- Review de Pull-Request
+ajd:
+- Finaliser pull request resampling
+- Finaliser exportation donnée avec team robot
+- Resampling contour sur 3D avec Jeremy
+
+
+*Kevin*:
+- Tester 6 solutions
+  - Disco avec slurm
+  - Trop long sans disco
+- Réunion pour intégration avec P-Y et Louis
+adj:
+- Commencer structure de classes basiques d’intégration avec la pipeline globale afin d’accueillir la solution IA choisie
+- Continuer de chercher des solutions avec calypso comme serveur
+
+*Marco*:
+- Test possible solution image2texture
+- Mise en place du Benchmark
+- Recherche pour la présentation (text2texture, image2texture)
+#blocker:
+  - Pas de validation du modèle de canard
+adj:
+- Ajout d'images dans GitHub
+- Création d'un container
+- Décision pour un model (text2texture, image2texture)
+
+
+*P-Y*:
+- meeting intégration
+- Kevin + Jeremy: défine model pour 1ère intégration
+- _Discussion avec groupe robot_:
+  - Dessin sur surface plan incliné
+  - Plan, multiligne
+- Discussion tracing pour le domaine du robot
+- Utilisation de Trimesh pour les collisions
+  - Simple algo pour évité les collisions (convexe)
+adj:
+- Test avec le robot
+  - finir le pipeline d’intégration (simple test)
+
+Remarques:
+ - Jeremy: manque de communication dans l'équipe robot
+ - Réunion avec CEO:
+  - Manque d'organisation pour la réunion
+  - Les Slides n'étaient pas pertinente pour le CEO
+ - Louis: Gestion des tâches sur JIRA a actualisé
+  - _Team robot_: impression tâches déjà complétée?
+ - Alex : Pour l'instant, il n'est pas possible d'avoir de position fixe (se baser sur la position d'éléments pour dessiner donc) : Comment allez-vous vous y prendre ?
+  - Possibilité d'utilisé la position relative -> Transformation des cordonnées sur objet à cordonnées robot TCP.
+
+Décision:
+- Utiliser Calypso pour la génération de texture, plus Disco
+- 14h30: 1ère version du pipeline prêt à être testé
+  - Pipeline complet
+  - Dessiner sur deux faces d'un trapèze
+- Organisation: idée désignation de responsable pour les présentations
+
+#import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 2),
+  location: [23N314],
+  time: [9h00],
+  scribe: "M"
+)
+
+*Louis*
+
+- Merge du pipeline de tracing
+- Commencé déploiement de la documentation PDF
+- Aujourd'hui objective avoir un pipeline GenAI & Tracing
+
+*Jeremy*
+
+- Tracing pipeline - amélioration de certains détails en cours
+- Remarque :
+    - Comme cette semaine a 1 jour de moins (à cause du Forum HES-SO) mais le weekly milestone reste ambitieux $->$ il va falloir se la donner
+    - Proposition de ne pas faire son portfolio durant le temps de travail - *acceptée*
+
+*Alexandre*
+
+- Rdv Madame Richard, pièces sont ok
+- Rdv Darbellay, pièces en bois ok
+- Bilatéral avec Team Robot
+- Perspective: impression des pièces
+- Besoin d'une prise de décision au niveau de la taille des feutres ( Team Robot est directement affectée )
+
+*Marco*
+
+- Disco en travaux, tous les calypso sans accès à internet
+- Mise en place du benchmarck automatisé avec prompt engineering
+
+*Kevin*
+
+- Disco en travaux, tous les calypso sans accès à internet
+- PR de la pipeline calypso : en attente de validation
+- Tests de solutions coûteuse sur Disco , réflexion à une pipeline automatisé pour utiliser cette solution
+
+
+*Cédric*
+
+- Redéfini pipeline du robot (fonctions, tâche)
+- Visualisation du pipeline
+
+*P-Y*
+
+- Mise en commun pour reformatage du code
+- Planification/Mise en place des deadline pour réussir les tests à venir
+
+*Nathan*
+
+- Visualisation des tests de reachability
+
+#import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 3),
+  location: [23N316],
+  time: [9h00],
+  scribe: "J"
+)
+
+*Louis*
+
+- Setup workflow pour compiler la doc
+- Commencé a setup un docker pour MV-Adapter $->$ quelques problèmes avec une dépendance
+- ajd:
+  - Finir docker pour MV-Adapter
+
+*Jeremy*
+- hier:
+  - Improvement : détecter des patchs de couleur à l'intérieur de patch de couleur
+
+- ajd:
+  - Continuer le développement de cette improvement
+
+- Remarque: le pipeline reste à tester par la team robot
+
+*Marco*
+- hier:
+  - mise en place d'un benchmark
+  - démonstration de résultats
+- ajd:
+  - automatisation du benchmark
+
+*Kevin*
+- hier:
+  - répondu aux commentaires d'une pool request, en attente de retour de Louis
+  - Préparation de slides pour meeting avec CEO
+- ajd:
+  - continuer les recherches de solution
+
+
+*Alexandre*
+- hier:
+  - modélisation 3d : modifications du support, préparation de modèle pour choix CEO
+  - impression du support, du canard
+  - recherche des mesures idéales pour impression (limites atteintes)
+- ajd:
+  - modification du support par rapport aux feutres (à choisir) - optimisation à voir
+  - a dispo du groupe robot
+- Remarque:
+  - commencer à décider du nombre de couleurs
+
+*Cédric*
+- hier:
+  - diagrammes UML
+  - Transformation points real-world -> points simulation
+- ajd:
+  - Poursuite du travail sur le pipeline robot
+
+*Nathan*
+- hier:
+  - Implémentation du nouveau pipeline : function get_reachable()
+- ajd:
+  - CEO's meeting + implémentation
+
+*Pierre-Yves*
+- hier:
+  - Implémentation du nouveau pipeline : collision / reformat path_finding
+- ajd:
+  - 2h de tests cette après-midi - serait optimale d'y être à 4 personnes
+
+
+
+  #import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 5),
+  location: [23N415],
+  time: [9h00],
+  scribe: "K"
+)
+
+*Marco* :
+
+Rétrospective :
+
+ - Dois push le pull request du benchmark
+ - Dois envoyer un mail un mudry
+
+Suite :
+
+- Faire des générations sur Disco
+
+
+*Kevin* :
+
+- Essayé d'utiliser Disco, bloqué par M. Pignat, ajd c'est bon
+- Complété la documentation de recherche solutions AI
+- Résolu partiellement les commentaires de PR
+
+Ajd:
+- Faire des générations sur Disco
+- Finir la PR
+
+*Jeremy* :
+
+Rétrospective :
+
+- Finir l'implémentation de l'amélioration du système de détection , presque terminé (corrections pull request)
+
+Suite :
+
+- Continuer sur d'autres optimisations : Être capable de gérer des formes à dessiner qui sont sur plusieurs faces
+
+*Louis* :
+
+- Continuer a essayé d'installer le docker de la Solution MV-Adapter (a rencontré pas mal de problèmes de dépendances)
+
+*Nathan* :
+
+- Continuer sur la fonction get_reacheable (retourne une liste de points TCP & les angles depuis où le bras peut atteindre ce point) + notebook de visualisation
+  va commit
+- Essayer de faire ramasser le stylo dans la simulation, a rencontré quelques problèmes mais fonctionne maintenant
+
+*Pierre-Yves*
+
+- A priori, pas possible de faire des tests sur le robot aujourd'hui
+- Discussion avec Loïc, conseillé d'utiliser des solutions déjà existante dans le docker (Move-it to), va implémenter cette solution aujourd'hui
+
+- Suggestion de M.Lettry : Passer sur tests & de la visualisation (graphes) pour chaque petite étape d'amélioration & de nouvelles implémentation (pour les tests de manière générale)
+
+*Cédric* :
+
+- Problèmes des angles après test sur le bras robot
+- Mettre en place un protocole de test détaillé pour le bras robot afin d'améliorer le debuggage et le error finding (voir avec l'équipe robot)
+
+*Alexandre* :
+
+- a fait les dernieres modifications nécessaires pour les modèles 3d , à envoyer un mail a darbellay pour les pieces en bois
+- Discussion avec cédric sur l'interet des pieces à se caller sur la plaque en métal (conclusion : semble pas important donc abandonné )
+- Partie modélisation terminée , Aujourd'hui : Se met avec la team robot pour travailler
+
+*Commentaires*
+
+- L : présentation de demain à faire
+- M : commentaire de Misk(Mudry) (faire des points)
+Milestone mort
+
+
+#import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 9),
+  location: [23N314],
+  time: [9h00],
+  scribe: "PY",
+  absent: "M"
+)
+
+*Kevin* :
+
+retrospective:
+- A créé un Excel qui répertorie ses créations
+- A résolu un problème sur la génération de canards
+- (montre un exemple de canard vert avec une étoile jaune: prompt + image correspondante)
+L: les points ça va être complique à faire
+plan:
+K: va se concentrer sur text2texture
+
+J: avoir un set mock et un vrai set
+C: (idem)
+K: ok
+
+
+*Team Tracing*
+
+*Louis* :
+- pas de nouvel avancement depuis le dernier meeting sur le tracing
+- Investissement sur le Docker de MV Adapter, mis en pause pour l'instant
+
+plan: va soit continuer l'intégration Docker ou continuer le tracing. Il est libre
+
+*Jeremy* :
+- a commencé a traiter les artefacts / îlots de couleur
+
+*Team LLM*
+
+- Reproduire l'environnement complet GenAI sur Docker est compliqué. Mais ce n'est pas le focus pour le moment
+
+*Alex*
+
+- a adapté le design pour un feutre.
+
+plan: faire le mouvement entre différents feutres.
+
+*Cédric*
+
+Rétrospective labo de vendredi:
+- Problème de précision : a cause de la surface, précision de calibration
+
+plan: a dessiner une ligne sur un canard.
+Question sur le jour off mardi -> R: seulement demi-journée ( après midi)
+
+*Nathan*
+
+- A mis en place la simulation avec tous les objets dans Gazebo
+- Fonction pour attraper un feutre
+- Fichier MD tuto setup des objets dans la simulation.
+
+plan: get_reachable
+
+*P-Y*
+
+- Regarder pour discuter des 3 solutions: choix fait $->$ PyBullet. Restructuration nécessaire mais pas immense.
+- Calibration plus précise notamment pen pressure. Tout ce qui faut pour améliorer la précision au delà du millimètre (Discussion avec Lettry)
+
+
+*Commentaire*
+
+- L : Faut pas penser faut faire (citation approximative de M. Lettry)
+- C : conserver la seed des générations
+- C : Mettre les méta-datas, pourrait être utile
+
+*Post-Daily Meeting*
+
+- Marco: Mise en place d'une solution on premise pour IMAGE2TEXTURE, il n'y a plus d'appel sur l'api chatgpt pour générer l'image de canard
+
+#import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 10),
+  location: [23N314],
+  time: [9h00],
+  scribe: "N",
+)
+
+*Alex*:
+- Mise en place + démarrage déplacement de stylo
+- Setup environnement
+- Imprimer support avec points de calibration
+  - Peut réimprimer
+- Mise à jour de documentation impression
+- Nouveau Stylo
+- Envoyer une nouvelle commande de goupille à Mme Richard
+
+*Marco*:
+- on premise solution image to texture
+  - Modèle de diffusion local avec GPU Disco (plus GPT)
+- Protocole de test
+  - Hyper-paramètres configurable
+- Choix image2texture ou text2texture pas encore sûre
+- Comparaison des modèles avec benchmark et prompt similaire
+
+*Kevin*:
+- Génération avec prompts
+- Comparaison des modèles avec benchmark et prompt similaire
+
+*Louis*:
+- Docker image MV Adapter "fonctionne"
+  - PR à valider
+- Export des axes (tracing) + documentation
+- Contours Polygones
+
+*Jeremy*:
+- Réduction couleurs des images -> couleurs des stylos
+
+*PY*:
+- PyBullet: simulation des collisions
+- Intégrer le canard et les traces dans la simulation
+
+*Nathan*:
+- Hier:
+  - Intégration du canard dans la simulation + doc
+  - Aidé Alex avec le simulateur
+- Ajd:
+  - Comprendre PyBullet
+  - Fichiers 3D de collisions (table + environnement)
+
+*Cédric*:
+- Documentation UML calibration et docstring
+- Comprendre code PyBullet et continuer documentation
+- Voir la pression et la force du bras avec le stylo
+  - Comprendre le signal de sortie du robot
+
+
+== Are the teams on track (personal opinion) ?
+
+*GenAI*
+- Oui
+
+*Tracing*
+- Oui
+
+*Robot*
+- Oui
+
+*Impression 3D*
+- Pas sûre
+  - Trouver une solution pour le support
+
+  #import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 11),
+  location: [Online],
+  time: [9h00],
+  scribe: "A"
+)
+
+*Kevin*
+Hier :
+  - Choix des hyperparamètres avec marco (judicieux ?), seeds pas important à fixer
+Auj :
+  - Pareil
+
+*Marco*
+Hier :
+  - Faire des générations de test -> objectif 80% du travail fait assez vite
+Auj :
+  - Continuité de hier
+
+12 générations de calibration
+Intérêt de changer la seed, fixe le nom d'inférence et on change la guidance
+
+Pour 1 prompt : 10 générations avec changement de paramètre pour les 2 méthodes
+
+K : demain soir, fini la présentation et pris une décision (reproduction de prompt, qualité)
+
+M : protocole en ordre, benchmark pas de grande quantité donc score à la main
+
+*Louis*
+Hier :
+- Vérifier les axes à l'export
+- Corriger les axes du canard conformément à la discussion avec C
+- Polygone de contours vérifié
+- PRs en attente
+Auj :
+- avec J, finaliser les optimisations de tracing (flou artistique : micro pixel de différentes couleurs mélangés)
+
+*Jeremy*
+Hier :
+- Continuer de mettre en place les optimisations/correction du pipeline de tracing lorsqu'une image générée est input.
+Auj :
+- Continuer et finaliser ce travail d'optimisation
+
+*Cédric*
+Hier :
+- Simulation dessin sur le canard
+- Investigation sur la force (pas encore de plot)
+Auj :
+- Poursuite de l'investigation sur les forces
+- Test robot
+
+*P-Y*
+Hier :
+- Intégration sur les collisions, self-collision, get_reachable
+Blocant(s) :
+- Problème de normal au niveau des yeux
+- Essai de symbole infini : Pas tout est accessible, point manquant
+- Normale qui varie de manière abrupt
+Auj :
+- Fixer les éléments bloquants
+- Dessiner sur le canard
+
+*Nathan*
+Hier :
+- Essai de PyBullet (Quickstart guide) pour aider la team
+- Workspace dans blender pour tester les collisions
+Auj :
+- Continuer sur PyBullet
+
+*Alex*:
+Hier :
+- Implémentation prototype code pour attraper et changer feutres (pas de mouvement entre le changement de feutre)
+Auj :
+- Test robot
+- Feutre position calibration à voir -> C
+
+
+
+#import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 12),
+  location: [23N314],
+  time: [9h05],
+  scribe: "C"
+)
+
+
+*Alexandre*
+
+Hier:
+- Terminer pipeline transition feutres:
+  - testé + vidéo
+  - problème déjà connu confirmé
+- Essai de correction surface d'adhésion pour les feutres
+  - impression en cours
+Ajd:
+- Adapter pipeline transition feutres
+- Combiner pipeline pour robot
+  - sur simulation
+
+*Jeremy*
+
+Hier:
+- Aide de Louis pour l'intégration des fichier reçu par l'équipe GenAi
+- Test + optimisation
+Ajd:
+- Poursuite des points de hier
+
+*Louis*
+
+Hier:
+- Discussion technique pertinence
+  - document disponible
+- Discussion problème coordonnés calibration position objet
+Ajd:
+- Problème couleur en dehors de l'uv map
+Remarque:
+- Qui s'occupe de la référence des cordonnées
+
+*Kevin*
+
+Hier:
+- Discussion test avec Marco
+- Test prompt + seed + hyperparametre pour text2texture
+Ajd:
+- Continue les test pour test2testure
+Remarque:
+- Demande éventuel d'aide
+
+*Marco*
+
+Hier:
+- Discussion test avec Kevin
+Ajd:
+- Ecrire un résumé pour prendre la décision sur le choix de la solution
+
+*Nathan*
+
+Hier:
+- Exploration pyBullet
+- Aide Alex pour le code avec le stylo
+Ajd:
+- Combiner pipeline pour robot
+  - sur simulation
+
+*Pierre-Yves*
+
+Hier:
+- Fini code pyBullet collision, simulation
+- Mise en place fichier python simulation
+  - Erreur code + organisation
+Ajd:
+- Combiner pipeline pour robot
+  - sur simulation
+- Corriger une erreur dans le code
+Remarque:
+- Préparer le matériel pour les tests
+  - Exemple: adaptateur Ethernet
+
+*Cédric*
+
+Hier:
+- Code de Pierre-Yves, ajout pour test robot
+- Data loggueur pour les forces
+  - CSV des forces
+  - Testé avec la simulation
+
+Ajd:
+- Combiner pipeline pour robot
+  - sur simulation
+- UML pour savoir ce qui est disponible
+
+*Team Robot*
+
+- Test robot vendredi matin
+- Confiant sur le milestone
+
+*Team GenAI*
+
+- Confiant
+
+*Team Tracing*
+
+- Mitigé
+
+*Impression 3D*
+
+- Corrections temporaires qui match le milestone
+
+*Général*
+
+Alexandre,Jeremy,Cédric:
+- Problème retard au daily meeting
+  - Eventuellemnt décaler le meeting à 8h
+
+
+  #import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 13),
+  location: [23N314],
+  time: [9h00],
+  scribe: "K"
+)
+
+*Pierre-Yves*
+
+Rétrospective :
+
+- A Refait une architecture différente pour run le code sans faire crasher le programme en labo
+
+- Bloquant : Problème de collision avec la table , trait invisible qui crée des collisions
+
+
+Aujourd'hui :
+
+- Labo + essayer de dessiner sur le canard
+
+
+*Cédric* :
+
+- logger pour communiquer entre les différentes parties du pipeline
+- diagramme UML
+
+
+*Nathan* :
+
+Rétrospective :
+
+A failli se faire virer
+
+Aujourd'hui :
+
+
+*Alexandre* :
+
+Rétrospective :
+
+- Modification du code robot de gestion des feutres
+- Fix du problème de friction entre le feutre et le support , à re designé le support à feutre (pas eu le temps d'imprimé)
+
+Aujourd'hui :
+
+- Tests robot de dessin sur un canard
+
+*Marco* :
+
+Rétrospective :
+- Analyse des résultats
+- Rédaction d'un rapport montrant les résultats
+
+Aujourd'hui :
+- Présentation
+
+
+
+*Jeremy (CHEF)* : Recadrage sur le groupe robot sur le fait que Nathan n'ai rien à faire pendant 2 jours contrairement a ses collègues du groupe robot => mauvaise distribution du travail
+
+
+*Louis* :
+
+Rétrospective :
+
+- Prise en connaissance de petits problèmes algorithmiques de l'algo de tracing + mise en pratique de fix (retard potentiel pris)
+  Aujourd'hui :
+- Finaliser la pull request (pour rendre le code un peu plus lisible)
+
+*Jeremy* :
+
+Rétrospective :
+
+- Idem que Louis
+
+Aujourd'hui :
+- Présentation + Continuer les optimisations de tracing
+
+*Kevin*:
+
+Rétrospective:
+- But de la semaine: choisir une solution
+- Établi un test pour trouver les meilleurs hyper-paramètres
+- Généré des textures avec les mêmes prompts que Marco pour comparer visuellement
+
+Aujourd'hui:
+- Présentation
+- Détailler le choix
+
+
+
+
+#import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 16),
+  location: [23N316],
+  time: [9h00],
+  scribe: "M"
+)
+
+*Marco* :
+
+Potentielle redistribution des forces GenAi dans d'autres groupes
+
+*Kevin*
+
+Planification du travail de semaine ( fine-tuning de la méthode et intégration)
+
+*Jeremy*
+
+- fct: Identification de îlots de couleurs
+- fct: contours, quelques bugs à gérer
+
+*Louis*
+
+- Refactoring code (texture hors uv-map)
+- interface interne avec démonstration version 1
+- tâche à faire: problème de couture, zones inaccessibles
+
+*Pierre-Yves*
+
+- Refactoring de la méthode pour la simulation ( collision, stand ) PyBullet
+- tâche à faire: écriture qui n'est pas cohérente ( téléportation du bras)
+- Pathfinding
+
+Contrainte général: Partie bloquante intégration du code au sein du groupe
+
+*Cédric*
+
+Pipeline UML qui sert l'organisation et la vue d'ensemble
+
+*Nathan*
+
+Git et contrôle de version
+
+*Alexandre*
+
+Transition de feutres
+
+Impression de support
+
+Achat de ressort
+
+Impression de support v2 avec les ressorts intégré
+
+Tâche à faire: Fonction de calibration pour les feutres
+
+Poursuite de la fonction de transition de feutre
+
+RDV pour travail de bachelor
+
+#import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 17),
+  location: [23N415],
+  time: [9h00],
+  scribe: "PY",
+  absent: "K"
+)
+
+*Marco* :
+
+hier:
+- a eu une discussion avec M.Lettry sur la génération d'image. Thème: comment avoir plus de données? Utilisation d'un script en python pour générer automatiquement sur Excel.
+- exemple d'essais: Pikachu, Mrbeast, Fortnite ect
+conclusion, pour les thèmes de JV c'est moins performant.
+
+ajd:
+- continue le benchmark humain / automatise
+
+
+Q: est-ce pour toutes les images les mêmes seed ? A: elles sont aléatoires.
+
+
+*Jeremy* :
+
+hier:
+- continue de résoudre des problèmes liées au remplissage de formes. Éviter que de trop petits artefacts soient visibles sur le canard.
+
+exemple visuel:
+- segmentation et visualisation. Enlever les parties du canard que l'on ne garde pas.
+
+ajd:
+- remplir des contour a l'aide de lignes
+- création de data classe en python
+
+
+
+ajd:
+
+
+*Louis* :
+
+hier:
+  - Résolution du problème des zones non atteignables ( comme le bord des yeux, dessous du canard,  intérieur du bord, dos du canard ). Fait manuellement sur Blender.
+
+  - amélioration de l'interface en pyQt, voir les traces, rotationable en 3D, visualisation contrôlable avec la souris. Possibilité de configurer la palette de couleur, et changer l'ordre d'utilisation des stylos ( par index de couleur ).
+
+Ajd:
+  - discuter de l'intégration
+  - discuter de quels paramètres il faut configurer ( avec l'équipe robot)
+  - un dataset de traces
+
+
+Alex: devons nous définir maintenant l'ordre des couleurs ?
+Réponse: pas nécessaire de choisir tous ensemble. Alex est l'expert il peut s'en charger
+
+*Pierre-Yves* :
+
+- Hier:
+  - Restructuration des fonctions
+  - Fichier PyBullet était mal organisé $->$ refactor en plusieurs fichiers
+  - Regardé pour merge
+  - Éléments bloquants $->$ résolu problème de "hover points"
+- Ajd:
+  - Changer l'ordre du pipeline (étapes de déplacement)
+
+*Cédric* :
+- hier:
+  - préparation du pipeline,
+  - A regardé le merge dev/merge-pipeline -> main
+  - Nouvelle classe segment qui organise le pipeline de transformation trace -> tcp
+
+*Nathan* :
+- hier:
+  - A travaillé sur la nouvelle classe "segment"
+  - A fait le filtre ( pour trier les traces sur le canards gauche vs droite )
+
+- Ajd: finir le merge et la PR
+
+*Alexandre* :
+- Hier :
+  - remanier la fonction de transition de stylos
+  - impression d'un nouveau support ( échec avec le ressort )
+
+- Auj :
+  - tester si la séquence ( changement de stylo ) fonctionne toujours bien
+  - essayer de résoudre le problème du ressort
+
+
+
+#import "./template.typ": *
+
+#show: meeting.with(
+  date: datetime(year: 2026, month: 3, day: 18),
+  location: [23N415 / Online],
+  time: [9h05],
+  scribe: "K",
+  absent: "M"
+)
+
+/*
+*Marco* :
+
+Rétrospective :
+
+
+Aujourd'hui
+*/
+
+
+*Kevin* :
+
+- Rétrospective :
+  - Commencé / mis à jour la branche d'intégration avec Calypso, adapté pour Disco
+  - Encore quelques changements nécessaire
+
+- Aujourd'hui :
+  - Finir la pull request d'intégration du pipeline GenAI
+
+*Louis* :
+
+- Rétrospective :
+  - Regardé avec Cedric et Pierre-Yves sur les besoins de la partie robot pour l'interface , développé un prototype graphique
+  - Commenté / Répondu a la pull request de Jeremy
+- Aujourd'hui :
+  - Regarder avec Kevin pour finaliser la pull request d'intégration GenAI
+  - Partie Tracing finie globalement
+
+*Jeremy* :
+
+- Rétrospective :
+  - Terminé les corrections d'un bug de remplissage d'ilôt
+  - Créer 10 tests différents de dessins / formes à faire sur le canard pour benchmarker à quel point le système de dessin est robuste
+- Aujourd'hui :
+  - Rien à faire
+
+
+*Cédric* :
+
+- Rétrospective :
+  - A fait un fichier python d'intégration de la partie robot à la pipeline globale
+  - A développer le test de transformation et essayé sur le robot => erreur
+
+
+- Aujourd'hui :
+  - Corriger le test de transformation (à essayé hier et problèmes de points)
+
+*Pierre-Yves* :
+
+- Rétrospective :
+  - Plotting des joints : Essaie de fix le problème des joints du robot qui change radicalement entre 2 positions cote à cote => pas idéal / réaliste
+
+
+*Nathan* :
+
+- Rétrospective :
+  - A développé la fonction de filtrage (séparer en deux coté tout les points du modèle 3d)
+
+- Aujourd'hui :
+  - Intégration du bras robot dans la pipeline globale ?
+  - Intégration
+
+*Alexandre* :
+
+- Rétrospective :
+  - Préparé pour la session test robot de hier (s'adapter et s'intégrer dans une pipeline)
+  - Préparé les ressorts et les nouveaux sets de supports , Problème : à coupé aléatoirement les supports + pleins de problèmes étrange (comportement bizarre (pince de s'ouvrait pas ou fermait pas))
+
+- Aujourd'hui :
+  - Va chercher a Hornbach les nouveaux ressorts
+  - Session de test robot à 15h
+  - Adapter tout le code pour être compatible avec le code de Cédric (code d'intégration de la partie robot à la pipeline globale)
+
+*Redistribution des taches * :
+
+- Louis $->$ aider pour résoudre le problème de position instable du bras (w/ PY) / Intégration de la partie robot dans la pipeline globale
+
+- Nathan $->$ Refactor/Fix le code d'Alex sur le mécanisme de transitions de feutres
+
+- Jeremy $->$ Review complète du code d'intégration robot dans la pipeline globale
+
+
+
+Bloquants :
+
+- Le support du robot ne tient pas assez avec le scotch
+  - Solutions potentielles :
+    - Utiliser la colle ?
+    - Trou des goupilles plus petit ? -> Doit réimprimer le support -> Doit redemander a Darbellay une plaque en bois avec des trous plus petits
+    - Mettre des vis sur du plastique ? -> Pas sur de résister à la pression / abîmer le support
+
+
+
