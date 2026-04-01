@@ -7,11 +7,7 @@
 
 ---
 
-- **Incremental drawing tests on 3D surfaces** -- from flat paper to trapezoid faces to the duck, comparing PyBullet-generated toolpaths against physical results on the real UR3e.
-- **Integration tests** -- `pybullet_collision_test.py` runs the full pipeline (JSON import to final waypoint list) to verify all modules work together.
-- **Unit tests** -- TCP calibration accuracy and coordinate-frame transformation correctness validated individually.
-- **Joint-angle trajectory plots** -- visualised planned paths to detect discontinuities (unsafe jumps between waypoints).
-- **Simulation-to-reality validation** -- ran validated paths on the physical arm to confirm transfer accuracy.
+- **Incremental drawing tests on 3D surfaces** -- I tested the drawing pipeline progressively, from flat paper to trapezoid faces to the duck, comparing PyBullet-generated toolpaths against physical results on the real UR3e. Each step revealed specific failures that I diagnosed and fixed. The full progression is documented in the [evaluation report](../assets/pdf/evaluation_report.pdf).
 
 <details>
 <summary>Lemniscate drawing video</summary>
@@ -24,14 +20,14 @@
 ![First successful drawing on the duck](../assets/photos/IMG20260318164349.jpg)
 </details>
 
+- **Joint-angle trajectory analysis** -- I visualised planned joint-angle trajectories to detect discontinuities (unsafe jumps between waypoints). This allowed me to identify that the IK solver was picking inconsistent configurations for nearby points. The plot below shows an example of such discontinuities. [Joint trajectory notebook]()
+
 <details>
 <summary>Joint-angle trajectory plot showing discontinuities</summary>
 
 ![Joint-angle trajectory plot showing discontinuities](../assets/photos/bad_plot.png)
 </details>
 
-**Evidence:**
+- **Pathfinding algorithm speed evaluation** -- I measured the computation time of the pathfinding algorithm to evaluate whether it could run within acceptable limits for the full pipeline. [Pathfinding benchmark results]()
 
-- [Evaluation report](../assets/pdf/evaluation_report.pdf)
-- [Demos / notebooks](https://github.com/Toys-R-Us-Rex/ur3e-control/tree/dev/demos/my_simulation/demos): iterative validation
-- [pybullet_collision_test.py](https://github.com/Toys-R-Us-Rex/ur3e-control/blob/dev/clean-merge-pipeline/pybullet_collision_test.py): integration test (full pipeline)
+- **Path smoothness evaluation** -- I evaluated the smoothness of the robotic arm's path by comparing joint trajectories before and after the smoothing pass, to verify that the configuration flipping problem was resolved. [Smoothness evaluation report]()
