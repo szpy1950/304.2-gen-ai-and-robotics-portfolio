@@ -5,12 +5,10 @@
 
 ---
 
-To design the robotic arm's painting pipeline, I conducted research across the main technical challenges: UR3e kinematics (Denavit-Hartenberg parameters, forward kinematics, and two IK approaches), coordinate frame transformations for mapping duck and robot frames, surface normals for perpendicular tool orientation on 3D surfaces, and simulation tool options. This research informed two key design decisions: adopting the analytical IK already implemented in URBasic rather than the slower numerical approach, and selecting PyBullet as the simulation environment over Pykin, MoveIt2, and Gazebo, based on its URDF support, collision detection, and direct Python API without requiring ROS2.
+- **Technical research** -- I conducted research across the main technical challenges of the robotic arm pipeline: UR3e kinematics (Denavit-Hartenberg parameters, forward kinematics, analytical vs numerical IK), coordinate frame transformations, and surface normals for tool orientation on 3D surfaces. My research is documented in [this report](../assets/pdf/robot_research.pdf).
 
-**Evidence:**
+- **FK/IK design decision** -- I studied both analytical IK (closed-form, up to 8 solutions using the UR3e's spherical wrist geometry) and numerical IK (Jacobian-based iteration). I concluded that analytical IK was the right choice because it gives exact solutions with no convergence risk. This analysis is documented in my [FK/IK research report](../assets/pdf/IK_fk.pdf).
 
-- [Pipeline design model](../assets/pdf/pipeline_desing_model.pdf)
-- [List of technical research](../assets/pdf/robot_research.pdf)
-- [FK/IK research](../assets/pdf/IK_fk.pdf)
-- [Collider simulator comparison](../assets/pdf/Comparaison.pdf)
-- [Robotic arm tech presentation](https://github.com/Toys-R-Us-Rex/Duckify/blob/main/docs/presentations/20260220_robotic_arm.pdf)
+- **Simulation tool selection** -- I compared Pykin, PyBullet, MoveIt2, and Gazebo against our requirements (collision detection, URDF support, Python API, ROS2 dependency). I selected PyBullet because it provides a direct Python API with collision detection and URDF loading without requiring the full ROS2 stack. The comparison is available in the [comparison report](../assets/pdf/Comparaison.pdf).
+
+- **Pipeline design** -- I designed the end-to-end painting pipeline that takes JSON coordinates from the tracing team and drives the UR3e to paint them onto the duck. I specified each stage with clear input/output contracts so that the robot sub-team could work in parallel. The pipeline model is documented in [this report](../assets/pdf/pipeline_desing_model.pdf).
